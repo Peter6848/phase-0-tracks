@@ -9,4 +9,5 @@ A branch is a clone of the master file.  You can add/subtract to the branch with
 * What is a commit? What makes a good commit message?
 A commit is pretty much a save point.  A good commit message describes what changes you made at the save point.
 * What is a merge conflict?
-A merge conflict is when the master file and any branch file are conflicting in commits.  The computer doesn't know which file to listen to. 
+A merge conflict is when the master file and any branch file are conflicting in commits.  The computer doesn't know which file to listen to.
+YAAAHOOOOOO!!! 
