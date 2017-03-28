@@ -13,7 +13,22 @@ cite {
   list-style-type: none;
   padding-left: 0px;
 }
+body {
+  max-width: 960px;
+  min-width: 440px;
+}
+#external-links{
+  width: 20%;
+  display: inline-block;
+  vertical-align: top;
+}
+main {
+  width: 75%;
+  
+  display: inline-block;
+  
 
+}
 /* you're welcome to edit the
 image, figure, and figcaption CSS if you'd like, 
 but it's optional! */
@@ -30,3 +45,14 @@ figcaption {
   font-style: italic;
   text-align: right;
 }
+@media screen and (max-width: 500px) {
+  body {
+    background-color: lightblue;
+  }
+}
+@media screen and (max-width: 500px) {
+  img {
+    width: 50%;
+  }
+}
+
