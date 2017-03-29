@@ -1,0 +1,28 @@
+- For each floor in an elevator 1-5:
+  - Until desired floor is selected:
+    - Stay at current floor.
+  If desired floor is selected:
+    - Go to desired floor.
+
+def elevator(floor)
+  floor = rand(5)
+  if
+    floor == 0
+    puts "1"
+  elsif 
+    floor == 1
+    puts "2"
+  elsif 
+    floor == 2
+    puts "3"
+  elsif 
+    floor == 3
+    puts "4"
+  else
+    puts "5"
+  end
+end
+
+elevator(0)
+
+
