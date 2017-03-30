@@ -1,8 +1,12 @@
+#PSUEDOCODE FOR ELEVATOR ALGORITHM:
+
 - For each floor in an elevator 1-5:
   - Until desired floor is selected:
     - Stay at current floor.
-  If desired floor is selected:
+  - If desired floor is selected:
     - Go to desired floor.
+
+#ATTEMPT AT ELEVATOR ALGORITHM:
 
 def elevator(floor)
   floor = rand(5)
@@ -24,5 +28,15 @@ def elevator(floor)
 end
 
 elevator(0)
+
+#DRINK COFFEE ALGORITHM
+
+- For each hour of missed sleep:
+  - Drink one coffee.
+- When coffees drank is equal to hours of sleep missed:
+  - Stop drinking coffee.
+- If coffees drank exceeds missed hours of sleep:
+  - Run in circles for 15 minutes.
+
 
 
