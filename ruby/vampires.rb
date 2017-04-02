@@ -37,7 +37,13 @@ if insurance == "yes"
 else
   insurance = false 
 end
-  
+
+
+
+
+
+end
+
 if name == "Drake Cula" || name == "Tu Fang"
   puts "Definitely a vampire."
 elsif (age_validator(age, birth) == true && garlic == true)  || (age_validator(age, birth) && insurance == true) 
