@@ -27,3 +27,17 @@ def spy_name(str)
 end
 #PRINT OUT METHOD WITH INCLUDED ARGUMENT
 spy_name("Felicia Torres")
+
+valid_input = false 
+
+until valid_input 
+puts "Please type a name you would like to change."
+name = gets.chomp 
+if name == "quit"
+  puts "thank you"
+  valid_input = true 
+elsif name != "quit"
+  name = spy_name("#{name}")
+ 
+end 
+end 
