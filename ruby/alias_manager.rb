@@ -25,19 +25,16 @@ def spy_name(str)
   #TURN ARRAY BACK INTO STRING.
   str_new.join
 end
-#PRINT OUT METHOD WITH INCLUDED ARGUMENT
-spy_name("Felicia Torres")
-
-valid_input = false 
-
-until valid_input 
-puts "Please type a name you would like to change."
-name = gets.chomp 
-if name == "quit"
-  puts "thank you"
-  valid_input = true 
-elsif name != "quit"
-  name = spy_name("#{name}")
- 
+#ADD PP METHOD TO PRINT HASH IN USER FRIENDLY WAY
+require 'pp'
+#CREATE EMPTY HASH FOR USER INPUT
+names = {}
+#CREATE LOOP FOR MULTIPLE NAMES TO CHANGE.  'QUIT EXITS LOOP'
+loop do 
+  puts "Please type a name you would like to change. (or type 'quit'):"
+  input = gets.chomp 
+  break if input == 'quit'
+  names[input] = spy_name("#{input}")
 end 
-end 
+#PRINT HASH
+pp names
