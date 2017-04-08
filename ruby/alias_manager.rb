@@ -25,8 +25,7 @@ def spy_name(str)
   #TURN ARRAY BACK INTO STRING.
   str_new.join
 end
-#ADD PP METHOD TO PRINT HASH IN USER FRIENDLY WAY
-require 'pp'
+
 #CREATE EMPTY HASH FOR USER INPUT
 names = {}
 #CREATE LOOP FOR MULTIPLE NAMES TO CHANGE.  'QUIT EXITS LOOP'
@@ -36,5 +35,7 @@ loop do
   break if input == 'quit'
   names[input] = spy_name("#{input}")
 end 
-#PRINT HASH
-pp names
+#PRINT EACH KEY AND ARRAY IN HASH
+names.each do |key, array|
+  puts "#{key} is #{array}"
+end
