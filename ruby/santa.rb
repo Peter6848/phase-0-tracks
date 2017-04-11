@@ -7,8 +7,13 @@ class Santa
     p "That was a good #{type}!"
   end
 
-  def initialize
+  def initialize(gender, ethnicity)
     p "Initializing Santa instance..."
+    @gender = gender
+    @ethnicity = ethnicity
+    @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", 
+      "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+    @age = 0
   end 
 end 
 
