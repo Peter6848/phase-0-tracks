@@ -29,9 +29,49 @@ class Puppy
   end
 end
 
-puppy = Puppy.new
-puts puppy.fetch("bone")
-puts puppy.speak(5)
-puts puppy.roll_over
-puts puppy.dog_years(10)
-puts puppy.trick("jump")
+#puppy = Puppy.new
+#puts puppy.fetch("bone")
+#puts puppy.speak(5)
+#puts puppy.roll_over
+#puts puppy.dog_years(10)
+#puts puppy.trick("jump")
+
+class Frog
+  def initialize
+    puts "I'm a frog"
+  end 
+  def jump
+    puts "I jumped to the next leaf!"
+  end
+  def eat(food)
+    puts "I ate a #{food}.  And it was delicious!"
+  end 
+end
+
+
+index = 0
+while index < 50
+  frog = Frog.new
+  frogs = []
+  frogs << frog 
+  frogs.each do 
+    frog.jump
+    frog.eat("fly")
+    end
+  index += 1
+end
+
+frogs 
+
+
+
+
+
+
+
+
+
+
+
+
+
