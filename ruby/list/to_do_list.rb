@@ -9,7 +9,8 @@ class TodoList
   def delete_item(item)
     @get_items.delete(item)
   end
-  def retrieve_item(item)
-    @get_items(item)
+  def get_item(item)
+  @get_items[item]
   end
 end
+
