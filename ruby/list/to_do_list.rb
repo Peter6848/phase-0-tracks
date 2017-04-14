@@ -3,4 +3,13 @@ class TodoList
   def initialize(to_do_list_array)
     @get_items = to_do_list_array
   end
+  def add_item(item)
+    @get_items << item 
+  end 
+  def delete_item(item)
+    @get_items.delete(item)
+  end
+  def retrieve_item(item)
+    @get_items(item)
+  end
 end
