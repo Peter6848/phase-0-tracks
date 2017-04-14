@@ -71,5 +71,41 @@ your_list = add_item(your_list,"pita")
 p your_list
 
 #Method 3
+
+def remove_item(list, item)
+  list.delete(item) 
+  list 
+end 
+
+my_list = remove_item(my_list, "pineapple")
+p my_list
+
 #Method 4
+
+def update_item_amount(list, item, amount)
+  list[item] = amount 
+end 
+
+update_item_amount(my_list, "peaches", 5)
+p my_list
+
 #Method 5
+
+def print_list(list)
+  puts "MY LIST:"
+  list.each{|k, v| puts "#{k} = #{v}"}
+end
+
+print_list(my_list)
+
+
+
+
+
+
+
+
+
+
+
+
