@@ -4,7 +4,7 @@ describe WordGame do
   let(:word) { WordGame.new }
 
   it "stores the word given on initialization" do
-    expect(word.get_word("people")).to eq []
+    expect(word.get_word).to eq []
   end 
 
 end
