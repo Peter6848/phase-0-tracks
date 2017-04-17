@@ -81,7 +81,28 @@ game = WordGame.new("dogs")
 #p game.hide_word("people")
 p game.guess_letter("o")
 p game 
+
 #USER INTERFACE
+
+game = WordGame.new
+p game 
+
+while !game.over
+  puts "Guess a letter! #{@hidden_word}"
+  guess = gets.chomp
+  if game.get_word.include? guess
+    # CONVERT get_word to array
+    # update hidden_word array at THE SAME INDEX that the guess matches in the get_word array
+    # game.get_word.each_index.select{|i| game.hidden_word[i] == guess}
+    if game.hidden_word == game.get_word
+      puts "You Won!"
+      game.over = true
+    end
+  else
+    puts "NOPE! Keep guessing"
+    # if out of guesses, set game over to true and let tem know they suck
+  end
+end
 
 #puts "Lets play the guessing game!"
 #game = WordGame.new (@get_word)
@@ -94,15 +115,58 @@ p game
 #letter = gets.chomp
 
 
+-------------------------------------------------------------
 
+#GAME CLASS
+class WordGame
+  attr_accessor :get_word, :hidden_word
+  attr_reader :guess_count 
+  attr_reader :game_over
+  
+  def initialize(word)
+    @get_word = word.downcase
+    @guess_count = 0
+    @game_over = false
+    @hidden_word = "_" * word.length
+    @hidden_word = @hidden_word.split("")
+  end
 
+# def guess_letter(letter)
+#   show_word = @hidden_word
+#   @hidden_word.map do |letter|
+#     if letter.include? @hidden_word
+#       show_word << letter
+#       end
+#     end 
+# end
 
+  def guess_letter(letter)
+    #show_letter = @get_word
+    
+    #if @get_word.include? letter
+    #    @hidden_word << letter 
+    #end
+    if @get_word[letter] == letter 
+      @hidden_word[letter] = letter
+    end 
+  end
 
-
-
-
-
-
+  #MAYBE A GOOD SOLUTION?
+  #def guess_letter(letter)
+  #other_array = @getword && @hidden_word
+  #@get_word = ["d", "o", "g", "s"]
+  #@hidden_word = ["_", "_", "_", "_"]
+  #other_array.flatten!
+  #@get_word.map! do |letter| 
+  #  if @get_word[letter] == letter  
+  #    @hidden_word[letter].flatten!
+  #end
+#end
+  end
+end
+game = WordGame.new("dogs")
+p game.guess_letter("o")
+p game.get_word 
 
 
 
