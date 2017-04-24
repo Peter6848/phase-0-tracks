@@ -35,4 +35,4 @@ vehicles = {
 vehicles[:suvs][:drive_train][1]
 vehicles[:suvs][:seats][:medium] = 4  
 vehicles[:trucks][:make][3] = "Chevy"
-vehicles[:trucks]
+p vehicles[:trucks]
