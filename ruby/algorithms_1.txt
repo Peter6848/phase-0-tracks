@@ -1,0 +1,31 @@
+#ELEVATOR PSEUDOCODE
+- For each floor in an elevator:
+  - If call for elevator is pressed
+   - Go to that number  
+   - Then go to desired floor
+  - After going to desired floor 
+   - Reset to number 0
+
+def elevator(floor)
+  floor = [1, 2, 3, 4, 5].sample 
+  if floor == 1
+    puts "1"
+  elsif floor == 2
+    puts "2"
+  elsif floor == 3
+    puts "3"
+  elsif floor == 4
+    puts "4"
+  else floor == 5
+    puts "5"
+end
+
+#FEED DOG PSEUDOCODE
+- Through each 24 hours of the day
+  - If hour is equal to 8:00 a.m.
+    - Put food in dog tray
+  - If hour is equal to 6:00 p.m.
+    - Put food in dog tray
+  - If hour is equal to 9:00 p.m.
+    - Pet dog
+  
