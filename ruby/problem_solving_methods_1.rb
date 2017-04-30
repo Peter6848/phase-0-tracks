@@ -64,4 +64,3 @@ end
 
 array = [4, 3, 2]
 p bubble_sort(array)
-
