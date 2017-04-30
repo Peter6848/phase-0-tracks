@@ -80,16 +80,32 @@ extinct_animals = {
 # 1. Iterate through extinct_animals hash, printing each key/value pair
 # with a dash in between the key and value, and an asterisk between each pair.
 # ----
+extinct_animals.each do |animal, year|
+  puts "* #{animal} - #{year} *"
+end
 
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000. Do not use any special built-in methods.
 # ----
+new_animals = {}
+extinct_animals.each do |animal, year|
+  if year < 2000 
+    new_animals[animal] = year  
+  end
+end
+
+p new_animals
 
 # 3. Our calculations were completely off, turns out all of those animals went
 # extinct 3 years before the date provided. Update the values in extinct_animals
 # so they accurately reflect what year the animal went extinct.
 # Do not use any special built-in methods.
 # ----
+extinct_animals.each do |animal, year|
+  extinct_animals[animal] = year - 3
+end
+
+p extinct_animals
 
 # 4. You've heard that the following animals might be extinct, but you're not sure.
 # Check if they're included in extinct_animals, one by one:
@@ -98,10 +114,36 @@ extinct_animals = {
 # "Saiga Antelope"
 # Do not use any special built-in methods.
 # ----
-#RAN OUT OF TIME FOR THIS QUESTIONS BUT I BELIEVE .SHIFT WOULD WORK ON THIS SOME HOW.
+def is_extinct(hash, string)
+  result = false
+  hash.each_key do |animal|
+    
+    if animal.to_s == string
+      return true
+    else
+      false
+    end
+  end
+  result
+end
+
+#  hash.has_key?("#{string}")
+#end
+
+p is_extinct(extinct_animals, "Laysan Crake")
+
 # 5. We just found out that the Passenger Pigeon is actually not extinct!
 # Remove them from extinct_animals and return the key value pair as a two item array.
 # Find the built-in method that helps you accomplish this in the Ruby documentation
 # for Hashes.
 # ----
-#RAN OUT OF TIME FOR THIS ONE.
+new_hash = extinct_animals.to_a
+new_hash[0], new_hash[4] = new_hash[4], new_hash[0]
+new_hash
+extinct_animals = new_hash.to_h 
+p extinct_animals.shift
+p extinct_animals
+
+
+
+
