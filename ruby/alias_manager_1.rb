@@ -8,24 +8,41 @@
  # - Change all consonants to the next consonant
  # - Leave any spaces as is
 
-def next_vowel(string)
-  vowels = %w[a, e, i, o, u]
-  string = string.split(' ').reverse.join
-  string = string.downcase.chars
-  new_string = string.map do |char|
-    if vowels.include? char
+def spy_name(string)
+  vowels = ["a", "e", "i", "o", "u"]
+  consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
+  new_string = string.split(' ').reverse.join
+  new_string = new_string.downcase.split('')
+  new_string.map! do |char|
+    if vowels.include? char 
+      #new_string(char) = vowles.rotate(1)
       vowels.rotate(1)[vowels.index(char)]
-      new_string
+    elsif consonants.include? char 
+      consonants.rotate(1)[consonants.index(char)]
+    else
+      char 
     end
   end
-  p new_string.join 
-  
+  new_string.join
 end 
 
-p next_vowel("Hi there")
+#CREATE EMPTY HASH FOR USER INPUT
+names = {}
+#CREATE LOOP FOR MULTIPLE NAMES TO CHANGE.  'QUIT EXITS LOOP'
+valid_input = false
 
-#
-#p vowels
-#p consonants
+until valid_input
+  puts "Please type a name you would like to change. (or type 'quit'):"
+  input = gets.chomp 
+  if input == 'quit'
+    valid_input = true 
+  elsif 
+  names[input] = spy_name("#{input}")
+  end 
+end
+#PRINT EACH KEY AND ARRAY IN HASH
+names.each do |key, array|
+  puts "#{key} is #{array}"
+end
 
 
