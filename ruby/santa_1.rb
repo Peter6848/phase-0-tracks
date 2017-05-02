@@ -41,6 +41,7 @@ for i in 1..100
   santa.eat_milk_and_cookies("Chocolate Chip")
   santa.celebrate_birthday
   santa.get_mad_at("Dasher")
+  santa
 end
 
 
