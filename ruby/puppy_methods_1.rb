@@ -58,11 +58,26 @@ class SurferBro
 end
 
 surfers = []
-
+shaka_stuff = ["babes", "tubes", "beerskees", "North Shore"]
 for i in 1..50
 surfers << surfer = SurferBro.new
-surfer.shaka_gnar("Kelly's new surf wave")
-surfer.high_five(rand(1..6))
 end
 
-p surfers 
+surfers.each do |surfer|
+  surfer.shaka_gnar(shaka_stuff.sample)
+  surfer.high_five(rand(1..6))
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
