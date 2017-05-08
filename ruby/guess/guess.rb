@@ -27,5 +27,39 @@
   #PRINT MESSAGE AT END OF GAME BASED ON WIN OR LOSE.
 
 class Guess
+  attr_reader :new_word, :hidden_word
+
+  def initialize(word)
+    @new_word = word.split('')
+    @hidden_word = word.split('')
+  end
+
+  def change_word(letter)
+    letter = @new_word.index(letter)
+    @new_word.each do |char|
+      if @new_word[letter] == char 
+        @new_word[letter] = "_"
+      
+        end
+      end
+  end
+
 end
+
+
+game = Guess.new("hello")
+p game.hidden_word 
+p game.change_word("h") 
+
+
+
+
+
+
+
+
+
+
+
+
 
