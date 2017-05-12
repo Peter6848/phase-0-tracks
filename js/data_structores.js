@@ -22,10 +22,15 @@ function Car(year, make, isPieceOfCrap) {
   this.make = make;
   this.isPieceOfCrap = isPieceOfCrap;
 
-  this.breakDownAgain = function() { console.log("Stupid piece of shit car!"); };
-
+  this.breakDownAgain = function() {
+  if (isPieceOfCrap === true) { console.log("Stupid piece of shit car!"); }
+  else  { console.log("NOOO WAY!"); } } 
 }
 
 var myCar = new Car(2003, "Subaru", true);
 console.log(myCar);
 myCar.breakDownAgain();
+
+var yourCar = new Car(2008, "Honda", false);
+console.log(yourCar);
+yourCar.breakDownAgain();
