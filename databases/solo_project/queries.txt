@@ -26,3 +26,14 @@
   sqlite> SELECT * FROM lake;
   1|Lake Shasta|California|5
   3|Lake Powell|Utah|4
+
+  DIFFERENET JOINS:
+
+  INNER JOIN (INNER IS OPTIONAL)
+    sqlite> SELECT fish.name, lake.name FROM fish JOIN lake ON fish.lake_id = lake.id   WHERE lake.id=1;
+    Rainbow Trout|Lake Shasta
+
+  OUTER JOIN
+    sqlite> SELECT lake.id, lake.name, lake.rating FROM lake LEFT OUTER JOIN fish ON  lake.id = fish.id;
+    1|Lake Shasta|5
+    3|Lake Powell|4
