@@ -1,6 +1,6 @@
 require_relative 'Guess'
 
-describe Dancer do   
+describe Guess do   
   let(:guess) {Guess.new}
 
   it ("")

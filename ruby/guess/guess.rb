@@ -27,32 +27,86 @@
   #PRINT MESSAGE AT END OF GAME BASED ON WIN OR LOSE.
 
 class Guess
-  attr_reader :new_word, :hidden_word
-
+  attr_reader :word, :new_word, :hidden_word, :guessed_letters
+  attr_accessor :game_over, :guess_count
   def initialize(word)
-    @new_word = word.split('')
-    @hidden_word = word.split('')
+    @word = word.split('')
+    @hidden_word = "_" * word.length 
+    @guessed_letters = []
+    @guess_count = word.length
+    @game_over = false
   end
 
+  # MUCH CLEANER CORRECT VERSION!!
   def change_word(letter)
-    letter = @new_word.index(letter)
-    @new_word.each do |char|
-      if @new_word[letter] == char 
-        @new_word[letter] = "_"
-      
+    if @guessed_letters.include? letter
+      puts "You already guessed that letter!  Try again!"
+    else
+      @guess_count -= 1
+    end
+    @word.each_index do |index|
+      if @word[index] == letter 
+        @hidden_word[index] = letter
+        if !@guessed_letters.include? letter
+          @guessed_letters << letter
+          
         end
-      end
+     end
+    end
+    @hidden_word
   end
+# OVER COMPLICATED AND INCORRECT VERSION!
+#  def change_word(letter)
+#    char = @word.index(letter)
+#    if @guessed_letters.include? letter
+#      puts "You already guessed that letter!  Try again!"
+#      @guess_count += 1
+#    end
+#    @word.each_index do |index|
+#      if @word[char] == letter 
+#        @hidden_word[char] = letter
+#      
+#      if !@guessed_letters.include? letter
+#          @guessed_letters << letter
+#        end
+#      end
+#    end
+#    @hidden_word
+#  end
 
+end
+puts "Lets play hangman! Player 1 please type a word for Player 2 to guess!"
+word = gets.chomp
+game = Guess.new(word)
+
+puts "Player 2 here is your word!: #{game.hidden_word}"
+
+until game.guess_count == 0
+  puts "Player 2 you have #{game.guess_count} guesses!  Give me a letter"
+  letter = gets.chomp
+  game.change_word(letter)
+  puts "Your updated word is #{game.hidden_word} and you're guessed letters are #{game.guessed_letters}!"
+  if !game.hidden_word.include? "_"
+    puts "Congrats you win!"
+    game.game_over = true
+    break
+  end
+  if game.guess_count == 0
+    puts "Sorry you lose!"
+    game.game_over = true
+  end
 end
 
 
-game = Guess.new("hello")
-p game.hidden_word 
-p game.change_word("h") 
 
-
-
+#game = Guess.new("hello")
+#p game.hidden_word 
+#p game.change_word("h") 
+#p game.change_word("e")
+#p game.change_word("l")
+#p game.change_word("o")
+#p game.guessed_letters
+#p game.guess_count
 
 
 
