@@ -1,0 +1,28 @@
+1. Display the information in one table (either table is fine).
+  sqlite> SELECT * FROM fish;
+  1|Rainbow Trout|5|true|1
+  2|Carp|4|false|2
+  3|Bass|3|true|3
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+  sqlite> UPDATE fish SET life_span=1 WHERE id=2;
+  sqlite> SELECT * FROM fish;
+  1|Rainbow Trout|5|true|1
+  2|Carp|1|false|2
+  3|Bass|3|true|3
+
+3. Display the information in both tables using one query.
+  sqlite> SELECT * FROM lake, fish WHERE lake.id = fish.lake_id;
+  1|Lake Shasta|California|5|1|Rainbow Trout|5|true|1
+  2|Pinto Lake|California|2|2|Carp|1|false|2
+  3|Lake Powell|Utah|4|3|Bass|3|true|3
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+  sqlite> SELECT fish.name, lake.name FROM fish JOIN lake ON fish.lake_id = lake.id   WHERE lake.id=1;
+  Rainbow Trout|Lake Shasta
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+  sqlite> DELETE FROM lake WHERE id=2;
+  sqlite> SELECT * FROM lake;
+  1|Lake Shasta|California|5
+  3|Lake Powell|Utah|4
