@@ -2,7 +2,8 @@
 require 'sqlite3'
 require 'faker'
 
-#CREATE RANDOM NO PARKING TIMES FOR NO PARKING COLUMN
+#CREATE RANDOM NO PARKING TIMES FOR NO PARKING COLUMN.  
+#COULD NOT FIGURE OUT HOW TO GET ACTUAL HOURS AND THEN COMPARE TO TIME.NOW METHOD.
 def ticket_time
   x = rand(12)
   y = rand(12)
@@ -29,37 +30,38 @@ create_table_cmd = <<-SQL
     city VARCHAR(255),
     state VARCHAR(255),
     zip INT,
-    no_parking VARCHAR(255),
     start_time INT,
     end_time INT
   )
 SQL
 
+
 db.execute(create_table_cmd)
 
-def create_parking(db, street, city, state, zip, no_parking, start_time, end_time)
-  db.execute("INSERT INTO parking (street, city, state, zip, no_parking, start_time, end_time) VALUES (?, ?, ?, ?, ?, ?, ?)", [street, city, state, zip, no_parking, start_time, end_time])
+#CREATE METHOD THAT ADDS DATA INTO DATABASE TABLE.
+def create_parking(db, street, city, state, zip, start_time, end_time)
+  db.execute("INSERT INTO parking (street, city, state, zip, start_time, end_time) VALUES (?, ?, ?, ?, ?, ?)", [street, city, state, zip, start_time, end_time])
 end
 
+#ADD LOOP TO INSERT MULTIPLE RANDOM PIECES OF DATA INTO DATABASE TABLE
 100.times do 
-  create_parking(db, Faker::Address.street_name, Faker::Address.city, Faker::Address.state, Faker::Address.zip, ticket_time, start_time, end_time)
+  create_parking(db, Faker::Address.street_name, Faker::Address.city, Faker::Address.state, Faker::Address.zip, start_time, end_time)
 end
 
-parking = db.execute("SELECT * FROM parking")
+#parking = db.execute("SELECT * FROM parking")
 my_location = db.execute("SELECT * FROM parking ORDER BY RANDOM() LIMIT 1")
 
-#puts "Your vehicles location is at #{my}"
+puts "Your vehicles is parked on #{my_location[0][1]} in #{my_location[0][2]}, #{my_location[0][3]}."
 
+#CREATE METHOD THAT ALERTS USER IF THEY NEED TO MOVE THEIR VEHICLE
 def alert_me(my_location)
   my_location
   if my_location[0][-2] == 5 || my_location[0][-1] == 6
-  ###if Time.now == my_location.start || Time.now == my_location.end
-    p "You need to move your vehicle!"
+    "You need to move your vehicle!"
   else
-    p "You can leave your vehicle!"
+    "You can leave your vehicle!"
   end 
 end
 
-p my_location
 p alert_me(my_location)
 
