@@ -10,4 +10,4 @@
   * A POST request is when the client submits data to the server.  POST requests are not cached, don't show up in browser history, and cannot be bookmarked.  They are generally more secure than GET requests.
 
 3. Optional bonus question: What is a cookie (the technical kind, not the delicious kind)? How does it relate to HTTP requests?
-  * A HTTP cookie is a small piece of data that the server passes to the user's web browser.  This allows for session management (i.e. shopping carts), personalization (user preferences), and tracking (figuring out user behavior)
+  * A HTTP cookie is a small piece of data that the server passes to the user's web browser.  This allows for session management (i.e. shopping carts), personalization (user preferences), and tracking (figuring out user behavior).
