@@ -1,0 +1,11 @@
+$(document).ready(function(){
+  $(".intro").mouseenter(function(){
+    $(".intro").fadeOut('slow');
+  });
+  $(".intro").mouseleave(function(){
+    $(".intro").fadeIn('slow');
+  });
+  $('.intro').mouseenter(function(){
+    $('.intro').slideDown(2000);
+  });
+});
