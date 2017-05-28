@@ -47,9 +47,8 @@ end
 
 # Write a GET /contact route that displays an address (you can make up the address).
 
-get '/address/:contact' do
-  contact = params[:contact]
-  "#{params[:contact]}"
+get '/contact' do
+  "P.O. Box 1571, Capitola, CA 95010"
 end
 
 # A /great_job route that can take a person's name as a query parameter 
@@ -68,12 +67,37 @@ end
 #A route that uses route parameters to add two numbers and respond with the result. 
 # The data types are tricky here -- when will the data need to be (or arrive as) a string?
 
+get '/:number_1/plus/:number_2' do
+  calc = 0
+  if params[:number_1] && params[:number_2]
+    calc += params[:number_1].to_i + params[:number_2].to_i
+  end
+  calc.to_s
+end
+
+
 # Optional bonus: Make a route that allows the user to search the database in some way 
 # -- maybe for students who have a certain first name, or some other attribute. 
 # If you like, you can simply modify the home page to take a query parameter, 
 # and filter the students displayed if a query parameter is present.
 
+get '/student/:campus' do
+  #campus = params[:campus]
+  students = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])[0]
+  if students 
+    students.to_s
+  else
+    "This student is not currently enrolled."
+  end
+end
 
+#DO I NEED ANOTHER GEM TO USE GETS.CHOMP IN SHOTGUN/SINATRA???
+#get '/student_search' do
+#  puts "Please type a student's name here:"
+#  name = gets.chomp
+#  student = db.execute(SELECT * FROM students WHERE :name = name)
+#  student.to_s
+#end
 
 
 
