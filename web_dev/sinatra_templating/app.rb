@@ -24,4 +24,11 @@ post '/students' do
   redirect '/'
 end
 
+get '/students/about' do
+  erb :about_student
+end
+
+post '/students' do 
+  db.execute("")
+end
 # add static resources
