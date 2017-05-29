@@ -5,13 +5,10 @@
 </head>
 <body>
   <h1>About Student</h1>
-  <p>In one paragraph please tell us a little about yourself.  Click <a href="students/about">here</a>> to go to form.</p>
-  
-  <p>Click <a href="students/new">here</a> to create a new student.</p>
-  <ul>
-    <% @students.each do |student| %>
-      <li><%= student['name'] %>, <%= student['age'] %></li>
-    <% end %>
-  </ul>
+  <p>In one paragraph please tell us a little about yourself.</p>
+    <form action="/students" method="POST" height="200">
+    <input type="text" name="About Yourself" placeholder="About Yourself">
+    <button type="submit">Save</button>
+  </form>
 </body>
 </html>
