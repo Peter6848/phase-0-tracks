@@ -1,13 +1,13 @@
 <html>
 <head>
-  <title>Student Management System</title>
+  <title>About Student</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Student Management System</h1>
-  <p>Welcome to the student management system.</p>
+  <h1>About Student</h1>
+  <p>In one paragraph please tell us a little about yourself.  Click <a href="students/about">here</a>> to go to form.</p>
+  
   <p>Click <a href="students/new">here</a> to create a new student.</p>
-  <p>Click <a href="students/about">here</a> to tell a little about yourself.</p>
   <ul>
     <% @students.each do |student| %>
       <li><%= student['name'] %>, <%= student['age'] %></li>
